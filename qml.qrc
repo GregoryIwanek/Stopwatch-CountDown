@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>StopWatchSection.qml</file>
+        <file>StopWatchButton.qml</file>
+        <file>StopWatchText.qml</file>
+        <file>StopWatchCode.qml</file>
+        <file>CountDownCode.qml</file>
+        <file>mainSW.qml</file>
+        <file>CountDownSection.qml</file>
+        <file>MyScrollBar.qml</file>
+        <file>CountDownSectionStack.qml</file>
+        <file>CountDownSetTime.qml</file>
+        <file>CDLoopListView.qml</file>
+        <file>CDLoopListViewDelegate.qml</file>
+        <file>CDLoopListSelector.qml</file>
+    </qresource>
+    <qresource prefix="/results">
+        <file>countdownResults.txt</file>
+        <file>stopwatchResults.txt</file>
+    </qresource>
+</RCC>
