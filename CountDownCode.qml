@@ -38,7 +38,6 @@ Item {
 
     property bool cDIsActive: false
     property bool runningCountDown: false
-    property bool runningSleepTimer: false
 
     Settings {
         id: settingsCountDown
@@ -58,6 +57,7 @@ Item {
         property alias cDIsActive: countDownCodeCalculations.cDIsActive
         property alias runningCountDown: countDownCodeCalculations.runningCountDown
 
+        // in case we left app with STOP clicked-> to update time ( from 0:00:00...) when start new session
         Component.onCompleted: {
             if(runningCountDown == false && cDIsActive == true){
                 updateTime()
@@ -253,15 +253,4 @@ Item {
         }
     }
 
-    //separeted timer for updating cDSleepTime
-    Timer {
-        id: countDownSleepTimer
-        running: runningSleepTimer
-        repeat: true
-        interval: 100
-
-        onTriggered: {
-            //setSleepTime(countDownSleepTimer.interval)
-        }
-    }
 }

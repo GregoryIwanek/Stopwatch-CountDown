@@ -31,7 +31,6 @@ Item {
     property int sWLapCount: 1
 
     property bool runningStopWatch: false
-    property bool runningSWstopWatchSleepTimer: false
     property bool sWIsActive: false
     property bool sWIsEmpty: true //value to determine if we have alredy some records or not ( to start lapTime after 1-st record)
 
@@ -50,6 +49,7 @@ Item {
         property alias runningStopWatch: stopWatchCodeCalculations.runningStopWatch
         property alias sWIsActive: stopWatchCodeCalculations.sWIsActive
 
+        // in case we left app with STOP clicked-> to update time ( from 0:00:00...) when start new session
         Component.onCompleted: {
             if(runningStopWatch == false && sWIsActive == true){
                 updateTime()
@@ -234,17 +234,6 @@ Item {
             getlapTime() //calculate lapTime to display on screen
             sWCombinedTimeString = getTimeString() //get string to display on screen
             sWLapTimeString = getTimeStringlap() //get string of lapTime to display on screen
-        }
-    }
-
-    //separeted timer for updating sWSleepTime
-    Timer {
-        id: sWSleepTimer
-        running: false
-        repeat: true
-        interval: 100
-
-        onTriggered: {
         }
     }
 }
