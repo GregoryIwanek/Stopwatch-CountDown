@@ -11,10 +11,10 @@ PathView {
 
     width: delegateWidth
     height: parent.height
-    preferredHighlightBegin: (visibleItemCount/3 )/count
-    preferredHighlightEnd: (visibleItemCount/3)/count
+    preferredHighlightBegin: (visibleItemCount/3 )/count //depend on it, determine center field for highlight
+    preferredHighlightEnd: (visibleItemCount/3)/count //depend on it, determine center field for highlight
 
-
+    //definition of path to move by vertical list
     path: Path {
         startX: pathView.delegateWidth / 2
         startY: -pathView.delegateHeight / 2

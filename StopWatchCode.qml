@@ -34,6 +34,7 @@ Item {
     property bool sWIsActive: false
     property bool sWIsEmpty: true //value to determine if we have alredy some records or not ( to start lapTime after 1-st record)
 
+    //for storing variables dynamically ( start new session with state of app when ended)
     Settings {
         id: settingsStopWatch
         property alias sWStartTime: stopWatchCodeCalculations.sWStartTime

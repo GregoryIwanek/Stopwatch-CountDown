@@ -39,6 +39,7 @@ Item {
     property bool cDIsActive: false
     property bool runningCountDown: false
 
+    //for storing variables dynamically ( start new session with state of app when ended)
     Settings {
         id: settingsCountDown
         property alias cDStartTime: countDownCodeCalculations.cDStartTime
@@ -78,7 +79,7 @@ Item {
         cDStartTime = cDStartTime*100
     }
 
-    //on clicked button record
+    //on clicked button LAP
     function setLapStart(){
         cDLapStartTime = cDCurrentTime
     }

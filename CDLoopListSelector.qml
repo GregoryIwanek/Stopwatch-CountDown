@@ -22,6 +22,7 @@ CDLoopListView {
     property int numberCount: 0
     property bool initialized: false
 
+    //send chosen time to CountDownSection
     function sendNumber() {
         if(name == "hours"){countdownSection.countDownCodeRoot.hours = chosenTime}
         else if (name == "minutes"){countdownSection.countDownCodeRoot.minutes = chosenTime}
@@ -30,6 +31,7 @@ CDLoopListView {
 
     model: numberCount
 
+    //for looped vertical PathView
     onCurrentIndexChanged: {
         if (initialized && updateValueWhileMoving) {value = minimumValue + currentIndex}
         if (countdownSection.countDownCodeRoot.cDIsActive === false){chosenTime = currentIndex; sendNumber()}
@@ -86,9 +88,9 @@ CDLoopListView {
     }
 
     delegate:
-        CDLoopListViewDelegate {      
+        CDLoopListViewDelegate {
         id: delegate
-        visible: delegate.isVisible
+        visible: delegate.isVisible // visible only last moved vertical pathView and all of them after RESET button
         indexOf: index
         Text {
             id: delegateText
@@ -100,6 +102,7 @@ CDLoopListView {
             color: "white"
         }
 
+        //for picking number from field
         MouseArea {
             id: delegatMouseArea
             anchors.fill: parent
@@ -109,6 +112,5 @@ CDLoopListView {
             }
         }
     }
-
 }
 
