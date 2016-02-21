@@ -1,0 +1,41 @@
+STOPWATCH_COUNTDOWN QML
+
+SIMPLE STOPWATCH_COUNTDOWN WITH QTQUICK/QML
+
+Goals:
+QML SECTION
+-custom button ✓
+-custom text ✓
+-custom scrollbar ✓
+-loading sections by Loader component to a ListView ✓
+-stopwatch section layout ( ListView for printing results, buttons, text)✓
+-countdown stack section ( create map to navigate to subsections)✓
+-countdown set time subsection layout ( based on vertical PathView) ✓
+-countdown main section ( ListView for printing results, buttons, text)✓
+-code section for stopwatch section ✓
+-code section for countdown section ✓
+
+C++ SECTION
+-create class for storing splitted string with results (DataObject)✓
+-create class for handling methods between QML/C++ and loading stored results from .txt file ( DataMethods), and saving them there✓
+-expand data model ( read from .txt file) from c++ to QML by using rootContext ✓
+-connect save/load functions from DataMethods with QML by using Q_INVOCABLE, Q_PROPERTY macros ✓
+-connect model to ListView delegates in correct sections ✓
+-create class for storing global settings ✓ ( FOR FUTURE USE)
+
+ISSUES
+-performance upon scrolling ListView ✓ ( do not use "rotation" in ListView and ListView's delegates)
+-fix freezed Timer while app is sleeping/background ✓ ( Date().getTime() instead of Timer intervals)
+-fix starting from ending point between sessions ✓ ( Settings component in Code sections for storing current state)
+-connect model from C++ to QML ✓ ( expanding properties with rootContext and Q_PROPERTY(QQmlListProperty<QObject>)
+-connect methods from C++ to QML ✓ ( expanding with Q_INVOCABLE and Q_QMLPROPERTY)
+-location of .txt file of executable version ✓ ( just put in main executable folder)
+-set fixed orientation ( portrait/vertical)✓ ( edit manually AppManifest file with extra lines)
+-clear comments ✓
+
+ISSUES TO DO
+-fix conflict between variables for two instances of CodeSection between sessions - ( workaround- sadly, two different files with
+same code, but with different first letters of variables-> there is a conflict between variables from StopWatch and CountDown saved
+in Settings-> they can overwrite themselfs upon new session, even while id of Sections ( CountDown and StopWatch)
+and Settings ( setting for StopWatch and CountDown) are different)
+
