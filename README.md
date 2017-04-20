@@ -1,80 +1,78 @@
-[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=plastic)](https://android-arsenal.com/api?level=16)
-# JumpGame
-*Android FlappyBird-like game*
+# Stopwatch-CountDown
+*Mobile QtQuick/Qt Stopwatch app*
 
-## What is JumpGame
-Learning project.
-JumpGame is a simple android, FlappyBird-like game.
+TESTED ON LUMIA, WINDOWS PHONE 8.1; PC- run on Windows 10
+## What is Stopwatch-CountDown
+Stopwatch-CountDown is a simple Windows Phone application. Can be used to measure time and count down precisely.
 
 ## What was used to build app
-To code and build this app was used:
+To code and build this app were used:
 
 **Tools**
-* Java 7
-* Android Studio 2.3
-
-**Pattern**
-* MVVM with Data Binding
+* C++
+* <a href="http://doc.qt.io/qt-5/qtqml-index.html" title="QML">QML</a>
+* <a href="https://github.com/qtproject" title="qtproject">Qt framework</a>
 
 **Libraries**
-* <a href="https://github.com/ReactiveX/RxJava" title="GraphView">RxJava</a>
+* <a href="https://github.com/qt/qtquickcontrols" title="QtQuick">QtQuick</a>
 
 **Tested on**
-* Nexus 4
-* API version 22
+* Lumia - Windows Phone 8.1
+* PC - Windows 10
 
 ## How does it look like
-Game has only one view ( state 20.04.2017).
+Application is divided into C++ ( part of Logic) and QML ( UI and Javascript logic) sections.
 
-Navigation between activities and fragments is done through Navigarion Drawer | Main view section, consists lists of saved recording sessions
+**Scheme**
+
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/PROJECT%20SCHEME/PROJECT%20SCHEME.pdf" title="scheme" height="250" />
+
+**C++ Section, goals:**
+* create class for storing splitted string with results (DataObject)✓
+* create class for handling methods between QML/C++ and loading stored results from .txt file ( DataMethods), and saving them there✓
+* expand data model ( read from .txt file) from c++ to QML by using rootContext ✓
+* connect save/load functions from DataMethods with QML by using Q_INVOCABLE, Q_PROPERTY macros ✓
+* connect model to ListView delegates in correct sections ✓
+* create class for storing global settings ✓ ( FOR FUTURE USE)
+
+**QML section, goals:**
+* custom button ✓
+* custom text ✓
+* custom scrollbar ✓
+* loading sections by Loader component to a ListView ✓
+* stopwatch section layout ( ListView for printing results, buttons, text)✓
+* countdown stack section ( create map to navigate to subsections)✓
+* countdown set time subsection layout ( based on vertical PathView) ✓
+* countdown main section ( ListView for printing results, buttons, text)✓
+* code section for stopwatch section ✓
+* code section for countdown section ✓
+
+StopWatch section main screen. | CountDown section main screen. 
 :-------------------------:|:-------------------------:
-<img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/nav_drawer.png" title="nav drawer" height="250" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/master/screenshot/main_view.png" title="main view" height="250" />
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0001.jpg" title="stopwatch_section" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0002.jpg" title="count_down_section" height="300" />
 
-Recording session section, works as operation center for recording altitude and locations | Details section, shows basic information and statistics of choosen session
+Custom tumbler. Used to set time to count down. Max time is 24:00:00 | Visibility is changing if movement stops. 
 :-------------------------:|:-------------------------:
-<img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/recording_session.png" title="recording session" height="250" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/details.png" title="details section" height="250" />
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0003.jpg" title="custom tumbler" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0004.jpg" title="custom tumbler visibility" height="300" />
 
-Statistics section, shows global statistics of the all recording sessions | Map section, shows recorded locations as a path on a google map
+StopWatch list with records. Records are saved dynamically into .txt | CountDown list with records. Records are saved dynamically into .txt
 :-------------------------:|:-------------------------:
-<img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/statistics.png" title="statistics section" height="250" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/map.png" title="map section" height="250" />
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0007.jpg" title="stopwatch full" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/map.pnghttps://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0005.jpg" title="count down full" height="300" />
 
-About section, consists series of fragments with descriptions of other sections | Settings section, holds bunch of custom user settings
-:-------------------------:|:-------------------------:
-<img src="https://rawgit.com/GregoryIwanek/AltiMeter/master/screenshot/about.png" title="about section" height="250" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/master/screenshot/settings.png" title="settings section" height="250" />
+## Issues solved
+* performance upon scrolling ListView ✓ ( do not use "rotation" in ListView and ListView's delegates)
+* fix freezed Timer while app is sleeping/background ✓ ( Date().getTime() instead of Timer intervals)
+* fix starting from ending point between sessions ✓ ( Settings component in Code sections for storing current state)
+* connect model from C++ to QML ✓ ( expanding properties with rootContext and Q_PROPERTY(QQmlListProperty<QObject>)
+* connect methods from C++ to QML ✓ ( expanding with Q_INVOCABLE and Q_QMLPROPERTY)
+* location of .txt file of executable version ✓ ( just put in main executable folder)
+* set fixed orientation ( portrait/vertical)✓ ( edit manually AppManifest file with extra lines)
+* clear comments ✓
 
-## To do
-* add sound effects
-* replace java interface callbacs with RxJava
-* add new types of enemies ( random movement pattern)
-* add attack ( under bomb button -> remove all enemies upon use)
-* add new types of bonuses
+## To Do
+* fix conflict between variables for two instances of CodeSection between sessions - ( workaround- sadly, two different files with
+same code, but with different first letters of variables-> there is a conflict between variables from StopWatch and CountDown saved
+in Settings-> they can overwrite themselfs upon new session, even while id of Sections ( CountDown and StopWatch)
+and Settings ( setting for StopWatch and CountDown) are different)
 
 
-Simple QT C++ program for learning german with small SQLite database file which contains some words
-
-Program is divided by two sections and main menu.
-GuessSentenceSection (SENTENCE button in main menu) is a game where user have to put WordContainers on Sentence Area in correct order, to get sentence in german language same as given translation in English.
-User can use Hint, which will show picture with some grammar rules. Goal can be achieved by sending correct WordContainers to Sentence Area in correct order, or, typing down into LineEdit correct german sentence.
-
-FlashCardSection (FLASH CARD button in main menu) is a game where user have to pair corresponding words in WordContainers on screen. For each pair of words there is translation and origin word.
-
-DONE:
-CLASSES
--class MainWindow ( is main window of program)
--class MyApplication (contains MainWindow and will give access to data in futore)
--class MyApplicationData (contains general data, in future will contian settings)
--class Words ( picks word from SQL by generated query)
--class SentenceData (operates on given queries and create instances of Word class, also holds data about words from SQL)
--class SentenceScheme (generates sentences to guess and list of words)
--classes AlgorythmNoun/Verb etc. ( generates queries for picking words from SQL)
--class apperiance (instance is extern- for use in UI apperiance)
--class FlashCardSection which contains logic and UI of section ( it is a bridge between logic and UI)
--class GuessSentenceSection which contains logic and UI of section ( same as above)
--class MyButton (customized button with signals/slots)
--class WordContainer (contains information from Sentence class and displays texts from Word instances)
-
-TODO:
--algorythm for moving WordContainers in GSSection to second Sentence Area if there is no space left in a first one
--algorythm for removing gaps from both Sentence Areas at same time
--timer in FCSection
--settings to choose ( like category of words in FCSecion, number of words in FCSection etc.)
