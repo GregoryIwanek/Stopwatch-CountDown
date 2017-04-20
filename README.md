@@ -25,7 +25,7 @@ Application is divided into C++ ( part of Logic) and QML ( UI and Javascript log
 
 **Scheme**
 
-<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/PROJECT%20SCHEME/PROJECT%20SCHEME.pdf" title="scheme" height="250" />
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/scheme.png" title="scheme" height="450" />
 
 **C++ Section, goals:**
 * create class for storing splitted string with results (DataObject)✓
@@ -47,16 +47,16 @@ Application is divided into C++ ( part of Logic) and QML ( UI and Javascript log
 * code section for stopwatch section ✓
 * code section for countdown section ✓
 
-StopWatch section main screen. | CountDown section main screen. 
-:-------------------------:|:-------------------------:
+|StopWatch section main screen. | CountDown section main screen.
+|:-------------------------:|:-------------------------:|
 <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0001.jpg" title="stopwatch_section" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0002.jpg" title="count_down_section" height="300" />
 
-Custom tumbler. Used to set time to count down. Max time is 24:00:00 | Visibility is changing if movement stops. 
-:-------------------------:|:-------------------------:
+|Custom tumbler. Used to set time to count down. | Visibility is changing if movement stops.| 
+| :-------------------------:|:-------------------------: |
 <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0003.jpg" title="custom tumbler" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0004.jpg" title="custom tumbler visibility" height="300" />
 
-StopWatch list with records. Records are saved dynamically into .txt | CountDown list with records. Records are saved dynamically into .txt
-:-------------------------:|:-------------------------:
+|StopWatch list with records. Records are saved dynamically into .txt | CountDown list with records. Records are saved dynamically into .txt |
+|:-------------------------:|:-------------------------:|
 <img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0007.jpg" title="stopwatch full" height="300" />  |  <img src="https://rawgit.com/GregoryIwanek/AltiMeter/GregoryIwanek-readme/screenshot/map.pnghttps://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/wp_ss_20160221_0005.jpg" title="count down full" height="300" />
 
 ## Issues solved
