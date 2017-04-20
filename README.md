@@ -1,7 +1,6 @@
 # Stopwatch-CountDown
 *Mobile QtQuick/Qt Stopwatch app*
 
-TESTED ON LUMIA, WINDOWS PHONE 8.1; PC- run on Windows 10
 ## What is Stopwatch-CountDown
 Stopwatch-CountDown is a simple Windows Phone application. Can be used to measure time and count down precisely.
 
@@ -25,7 +24,7 @@ Application is divided into C++ ( part of Logic) and QML ( UI and Javascript log
 
 **Scheme**
 
-<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/scheme.png" title="scheme" height="450" />
+<img src="https://rawgit.com/GregoryIwanek/Stopwatch-CountDown/master/GRAPHICS%20FROM%20SMARTPHONE/scheme.png" title="scheme" height="400" />
 
 **C++ Section, goals:**
 * create class for storing splitted string with results (DataObject)✓
